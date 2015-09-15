@@ -1,53 +1,30 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <title>My Website</title>
+    <title>Foundations 2: JavaScript - Course Review</title>
 
-  <!--   <link rel="stylesheet" type="text/css" href="?" /> -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css" />
   </head>
   <body>
+    <h1><span class="course-name"></span></h1>
 
-<!-- The goal here is to be able to click either one of the buttons and use Ajax to fetch data about either the lectures or the labs and display it in the relevant div. -->
-    <h1>Foundations 2: JavaScript &mdash; f2-pdx-simple-site</h1>
     <h2>Lectures</h2>
     <button id="lectures">Get Lectures</button>
-    <div id="showLectures"></div>
+    <div class="get-info" id="show-lectures"></div>
 
     <h2>Labs</h2>
     <button id="labs">Get Labs</button>
-    <div id="showLabs"></div>
+    <div class="get-info" id="show-labs"></div>
 
-    <!-- include jQuery here -->
+    <h2>Search <span class="course-name"></span></h2>
+    <form id="search">
+        <input type="text" name="searchText" placeholder="Search for word(s)" /><br />
+        <label for="lucky"><input type="checkbox" name="lucky" id="lucky" /> I feel lucky!</label><br />
+        <input type="submit" value="Find It"/>
+    </form>
+
+    <div id="search-results"></div>
+
     <script src="./assets/lib/jquery-1.11.3.min.js"></script>
-    <!-- include your external js file here -->
-    <script src="./assets/js/main.js" type="text/javascript"></script>
+    <script src="./assets/js/soln.js" type="text/javascript"></script>
   </body>
 </html>
-
- <!--    <ul id="buttons">
-      <li> <button data-lab="1">Lab 1: Assertions About Zoo Animals</button> </li>
-      <li> <button data-lab="2">Lab 1: Translating Meerkats</button> </li>
-      <li> <button data-lab="3">Lab 2: Blob Consumption Rates</button> </li>
-    </ul> -->
-<!--     <ul id="lab-images">
-      <li>
-        <img src="./assets/img/red-panda.png">
-        <span>Lab 1: Assertions About Zoo Animals</span>
-      </li>
-      <li>
-        <img src="./assets/img/meerkat.jpg">
-        <span>Lab 1: Translating Meerkats</span>
-      </li>
-      <li>
-        <img src="./assets/img/blob.jpg">
-        <span>Lab 2: Blob Consumption Rates</span>
-      </li>
-    </ul> -->
-
-
-<!-- TODO1 - create a JSON object for course details
-Action - look it up in Duckett
-'this is kev of json pair': 'this is value'
- -->
-
-
