@@ -1,26 +1,46 @@
-//TODO1 - create a JSON object for course details
-
-//assign properties
-'level': '201',
-'name': 'Foundations 2: JavaScript - replace with actual title',
-'lectures': [{name: 'class1Lecture', topic: ''}
-name: 'class2Lecture', topic: ''}
-name: 'class3Lecture', topic: ''}
-name: 'class4Lecture', topic: ''}
-name: 'class5Lecture', topic: ''}
-name: 'class6Lecture', topic: ''}
-name: 'class7Lecture', topic: ''}
-} ]
-'labs': [{name: 'class1Lab', topic: ''}
-name: 'class2Lab', topic: ''}
-name: 'class3Lab', topic: ''}
-name: 'class4Lab', topic: ''}
-name: 'class5Lab', topic: ''}
-name: 'class6Lab', topic: ''}
-name: 'class7Lab', topic: ''}
-} ]
+// create event handler to pick up button click
+$(function(){
+  $("#lectures").click(function() {
+//request server to update the page
+    $.get("http://localhost:3000/lectures", function(response) {
+      $("#showLectures").html("Name: " + response.name + "<br>" + "Topic: " +response.topic);
+    });
+  });
+})
 
 
+//3. Changes the text of the div
+    // ;
+//4. send this information to a new page which holds random course info
+    // app.get("/lectures", function (req, res) {
+      // res.json(course.lectures[randomIndex]);
+// });
+//
+// });
+
+
+//removing temporarily to test below callback
+// $(function() {
+//   $("#lectures").click(function() {
+//     $("#showLectures").text("This is a temporary string");
+//   });
+// });
+
+//TODO: write a callback for the button click
+
+
+
+// app.get("/preetgujral", function (req, res) {
+//   var randomIndex = Math.floor(Math.random()*course.lectures.length);
+//   res.json(course.lectures[randomIndex]);
+// });
+
+
+
+
+
+//TODO - write and register an event handler that pulls a random lab when lab button is clicked
+//var labButton
 
 // Everything before this is from the source file. I will be copying and pasting all new code above rather than space it out below.
 
