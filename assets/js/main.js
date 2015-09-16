@@ -15,46 +15,40 @@ $(function () {
   // Code Challenge 1:
   // When the user clicks the "Find It" button,
   // let's get back all the Lectures notes and display them.
-  $("????").on("????", function(e) {
+  $("#search").on("submit", function(e) {
     // TODO: Prevent the form from submitting the default way.
-
+    e.preventDefault();
     // TODO: Get the value of the input text box with name="searchText"
     //       and assign the value into a variable called searchText.
     // Hint: Look up the CSS selector to find an input by its "name"
     // Hint: Use the jQuery method .val() to get the value of an input
-    var searchText = ?????;
+    var searchText = $("input[name=searchText]".val());
     var lucky = $('input[name=lucky]').is(':checked');
-    var data = {searchText: ???, lucky: lucky};
+    var data = {searchText: searchText, lucky: lucky};
     // TODO: What's the URL of the endpoint we're going to hit?
-    var url = '??????';
+    var url = 'html://localhost:3000/search';
 
-    // console.log(data); // this will be a sanity check to see that we're getting the data
-    // $.post(url, data, function(response) {
-    //   var lectures,
-    //       output = '';
+  console.log(data); // this will be a sanity check to see that we're getting the data
+    $.post(url, data, function(response) {
+      var lectures,
+          output = '';
 
-    //   // TODO: Get the lectures property from the response object and
-    //   //       assign it into the lectures variable.
-    //   for (var i = 0; i < lectures.length; i++) {
-    //     // Now we need to make sure we have a notes object,
-    //     // and that it's an array, before we try iterating over it.
-    //     if (lectures[i].notes && lectures[i].notes.constructor === Array) {
-    //       for (var j = 0; j < lectures[i].notes.length; j++) {
-    //         // TODO: Each element in the lectures array contains an object.
-    //         //       We're checking to see that the object's notes property
-    //         //       is an object, and if so, we're unpacking all the notes.
-    //         //       We want to concatenate the notes to the output variable,
-    //         //       surrounded by <li></li> tags. Finish the next line:
-    //         output += '????' + ????? + '?????';
-    //       }
-    //     }
-    //   }
-    //   output = '<ul>' + output + '</ul>';
+      // TODO: Get the lectures property from the response object and
+      //       assign it into the lectures variable.
+      lectures = response.lectures;
+      if (response.notes && response.notes.constructor === Array) {
+        for (var i = 0; i < response.notes.length; i++) {
+          output += '<li>' + response.notes[i] + '</li>';
+        }
+      }
+      output += '<li>' + lectures[i].notes[j] + '<li>';
+    }
+   output = '<ul>' + output + '</ul>';
 
-    //   // TODO: What div are we putting our results into?
-    //   //       Which variable shows our unordered list?
-    //   $("????").html(?????);
-    // });
+      // TODO: What div are we putting our results into?
+      //       Which variable shows our unordered list?
+      $("#search-results").html(output);
+    });
   });
 
       for (var i = 0; i < lectures.length; i++) {

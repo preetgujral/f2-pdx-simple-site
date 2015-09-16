@@ -10,11 +10,11 @@ var port = process.env.PORT || 3000;
 
 // Then uncomment the following lines and fill in the question marks.
 // Hint: the module name is: body-parser
-// var bodyparser = require("??????");
-// app.use(bodyparser.json());
-// app.use(bodyparser.urlencoded({extended: true}));
+var bodyparser = require("body-parser");
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended: true}));
 
-app.use(express.static(__dirname + '/app/'));
+app.use(express.static(__dirname + '/'));
 
 var course = {
   level: 201,
@@ -67,15 +67,16 @@ function findPhrase(phrase) {
 // TODO: Instead of app.get(), we want to follow the same pattern using app.post().
 //       Surround the following lines of code with app.post() and make sure to
 //       call your endpoint "search".
-
+app.post('', function (req, res) {
 
 // TODO: Once you've surrounded this code with app.post(),
 //       we need to unpack our search phrase from req.body.
 //       Instead of the question marks, specify the name of the
 //       parameter that contains our search text.
-// var searchResults = findPhrase(req.body.?????);
-// res.json(searchResults);
-
+  var searchText = req.body.searchText;
+  var searchResults = findPhrase(searchText);
+  res.json(searchResults);
+});
 
 
 app.get('/lectures', function (req, res) {
