@@ -1,0 +1,33 @@
+Your mission if you choose to accept
+
+
+Tasks
+Pre-req - read through the three files and try and comment on what is happening in them:
+  went through html. understood
+  going through server
+    dont understand what body-parser does or what these actions are doing
+  f2search
+  client side js file
+
+1.  Integrate your homework from the weekend to make the "Get Lectures" and "Get Labs" buttons fetch information from the server using $.get().
+2. Allow users to search for multiple words/phrases by separating them with a comma.
+3. Add a message if there are no results. If no results were found, return an informative message to the user.
+4. If the user checks the "I feel lucky" checkbox, select a random entry from the "notes" options and display it immediately.
+5. Encapsulate any non-server-related functionality into separate files, and require in the functions/constructor functions from those files. (This is like what we did with f2search.js.) Put these separate files in your lib folder. Do this with at least one additional piece of functionality aside from f2search.js; be sure to require your modules in to server.js.
+
+Bonus Feature: Instead of returning an array of "notes" strings, return the object (which is already mocked up in the code from tonight) that includes the topic for the notes. On the front-end, include the topic for each line of notes in parentheses after the notes string.
+
+how to submit your work
+1. Use grunt to run jscs and jshint to check your code. Upload a screen shot of your terminal that shows your jshint and jscs checks passing.
+2. Push branch to github and create pull request to beths.
+2. Submit to Heroku
+3. Submit a url to your app deployed on Heroku and to the pull request on canvas
+
+File history
+server - what you worked on in class 9/14
+server2 - downloaded from beth - her version of server
+oldindex - what you worked on in class 9/14
+index.html - main html file - from beth
+*server4.js - main server file - from beth
+soln.js - main js file - interfaces with server and index
+*f2search.js in lib - contains variables and main search logic
