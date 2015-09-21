@@ -1,9 +1,11 @@
 // create event handler to pick up button click
 $(function(){
-  $("#lectures").click(function() {
+  $("button").click(function() {
 //request server to update the page
-    $.get("http://localhost:3000/lectures", function(response) {
-      $("#showLectures").html("Name: " + response.name + "<br>" + "Topic: " +response.topic);
+    var buttonClicked = $(this).attr("id");
+    console.log (buttonClicked)
+    $.get("http://localhost:3000/" + buttonClicked, function(response) {
+      $("#" + buttonClicked + "text").html("Name: " + response.name + "<br>" + "Topic: " +response.topic);
     });
   });
 })

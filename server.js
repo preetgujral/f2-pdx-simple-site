@@ -1,4 +1,4 @@
-var express = require('express');
+ var express = require('express');
 var app = express();
 var port = process.env.PORT || 3000;
 
@@ -58,6 +58,10 @@ app.get("/lectures", function (req, res) {
   res.json(course.lectures[randomIndex]);
 });
 
+app.get("/labs", function (req, res) {
+  var randomIndex = Math.floor(Math.random()*course.labs.length);
+  res.json(course.labs[randomIndex]);
+});
 
 
 
