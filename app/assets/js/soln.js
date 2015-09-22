@@ -1,13 +1,14 @@
-$(function () {
+//this is where to put the client side get requests.
 
+$(function () { //when page is loaded
+//this will happen on get-info click
   $('.get-info').click(function () {
     var section = $(this).attr('id');
-
     $.get("http://localhost:3000/" + section, function (response) {
       $("#show-" + section).text(response[0].topic);
     });
   });
-
+//this is where you put in what will happen on button click
   // Code Challenge 1:
   // When the user clicks the "Find It" button,
   // let's get back all the Lectures notes and display them.
@@ -48,5 +49,22 @@ $(function () {
 
 });
 
+//on click, retrieve relevant fragment of JSON data. loop through that data and output
+$(function(){
+  $("button").click(function() {
+    var buttonClicked = $(this).attr("id")
+    console.log ("Button clicked on: " + buttonClicked);
+    msg = "Results:"
+    $.get("http://localhost:3000/" + buttonClicked, function(response) {
+      $.each(response, function() {
+        $.each(this, function(k, v) {
+          msg += "<br>" + v
+        });
+      });
 
+      $("#" + "show-"+buttonClicked)
+      .html(msg);
 
+    });
+  })
+})
