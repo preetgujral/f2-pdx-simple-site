@@ -1,49 +1,50 @@
-var express = require('express');
+var express = require("express");
 var app = express();
 var port = process.env.PORT || 3000;
 
 var bodyparser = require("body-parser");
 app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({extended: true}));
+app.use(bodyparser.urlencoded({ extended: true }));
 
-app.use(express.static(__dirname + '/app/'));
+app.use(express.static(__dirname + "/app/"));
 
 var f2search = require("./lib/f2search");
+
 // console.log(f2search("Hi"));
-app.post('/search', function (req, res) {
+app.post("/search", function(req, res) {
   var searchResults = f2search(req.body.searchText);
   res.json(searchResults);
 });
 
-app.get('/lectures', function (req, res) {
-  res.json(course.lectures)
+app.get("/lectures", function(req, res) {
+  res.json(course.lectures);
 });
 
-app.get('/labs', function (req, res) {
+app.get("/labs", function(req, res) {
   res.json(course.labs);
 });
 
 var lablectbutton = require("./lib/lablectbutton");
-app.get('/getlucky', function (req, res) {
+app.get("/getlucky", function(req, res) {
   var output = lablectbutton(req.body.output);
   res.json(output);
-})
+});
 
-app.get('/course_name', function (req, res) {
+app.get("/course_name", function(req, res) {
   res.json(course.name);
 });
 
-app.get('/', function (req, res) {
+app.get("/", function(req, res) {
   res.sendFile();
 });
 
-app.listen(port, function () {
-  console.log('server started on port ' + port);
+app.listen(port, function() {
+  console.log("server started on port " + port);
 });
 
   var course = {
     level: 201,
-    name: 'Foundations 2: JavaScript',
+    name: "Foundations 2: JavaScript",
     lectures: [
       { "topic": "Intro, Basics 1",
         "notes": [ "The primitive data types are Boolean, Null, Undefined, Number, and String.",
@@ -63,19 +64,19 @@ app.listen(port, function () {
                    "JavaScript is function-scoped."
                  ] },
       { "topic": "Object Oriented Programming",
-        "notes": [ "OOP-blank note"]},
+        "notes": [ "OOP-blank note" ] },
       { "topic": "JavaScript in the Browser",
-        "notes": [ "JSinB-blank note"]},
+        "notes": [ "JSinB-blank note" ] },
       { "topic": "Node.js and Express",
-        "notes": [ "node.js-blank note"]},
+        "notes": [ "node.js-blank note" ] },
       { "topic": "Workshop",
-        "notes": ["workshop-blank note"]},
+        "notes": [ "workshop-blank note" ] },
       { "topic": "lodash",
-        "notes": [ "lodash-blank note"]}
+        "notes": [ "lodash-blank note" ] }
     ],
     labs: [
       { "topic": "Basics" },
-      { "topic": "Object Oriented Programming"},
-      { "topic": "Project"}
+      { "topic": "Object Oriented Programming" },
+      { "topic": "Project" }
     ]
   };
